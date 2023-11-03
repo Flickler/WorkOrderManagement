@@ -19,7 +19,8 @@ Sistema simples desenvolvido para gestão de ordem de serviços, esse sistema in
 - HTML5
 - CSS3
 - Typescript
-- Angular
+- React
+- NextJs
 - Postman
 - Git
 - Java e Java Spring Boot
