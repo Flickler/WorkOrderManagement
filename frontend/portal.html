@@ -6,9 +6,55 @@
     <link rel="shortcut icon" href="assets/img/favicon-zap.png" type="image/x-icon">
     <!--===== CSS =====-->
     <link rel="stylesheet" href="./assets/css/styles.css" >
-    <title>App - Gestão de Ordem de Serviço - Portal</title>
+    <title>App - Gestão de Ordem de Serviço - Portal de Consultas</title>
 </head>
 <body id="app">
-    
+    <!--===== HEADER =====-->
+    <header class="header">
+        <div class="headline__section" id="page-headline-section">
+            <a href="./home.html" class="link__btn h3">
+                <img src="./assets/img/i-left-big.png" alt="">
+                Voltar
+            </a>
+            <h1 class="h1">
+                Portal de Consultas
+            </h1>
+        </div>
+    </header>
+    <!--===== MAIN =====-->
+    <main class="main">
+        <div class="card">
+            <div class="card__actions">
+                <span class="card__label" id="os-key">
+                    <img src="./assets/img/i-key.png" alt="ID">
+                    ID
+                </span>
+                <div class="btn__group">
+                    <button>
+                        <img src="./assets/img/i-pencil.png" alt="Editar">
+                    </button>
+                    <button>
+                        <img src="./assets/img/i-trashcan.png" alt="Deletar">
+                    </button>
+                </div>
+            </div>
+            <div class="card__title">
+                Título da OS
+            </div>
+            <div class="card__content">
+                <p class="description">
+                    Descrição da OS
+                </p>
+                <span class="bullet">
+                </span>
+                <p class="description">
+                    Nome do Responsável
+                </p>
+            </div>
+            <div class="badge" id="os-status">
+                Concluído
+            </div>
+        </div>
+    </main>
 </body>
 </html>

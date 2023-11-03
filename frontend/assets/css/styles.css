@@ -35,7 +35,7 @@
     --radius-8: .5rem;
 
     /* Effects */
-    --shadow-effect: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    --shadow-effect: 0px 2px 4px 0px #F3F3F5;
 
     /* Z-index */
     --z-tooltip: 10;
@@ -66,6 +66,7 @@ body{
     flex-direction: column;
     min-height: 100vh;
     width: 100vw;
+    background-color: var(--gray-100);
 }
 
 input,
@@ -74,6 +75,11 @@ button{
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+textarea{
+    width: 100%;
+    height: 90px;
 }
 
 ul{
@@ -127,28 +133,27 @@ img{
     padding: .5rem 1rem;
     color: var(--gray-400);
     background: var(--gradient);
-    border: 1px solid var(--gray-100);
+    border: 1px solid var(--gray-300);
     border-radius: var(--radius-6);
 }
 
-.primary__btn:hover,
+.primary__btn:hover{
+    font-weight: var(--medium);
+    border: 1px solid var(--gray-200);
+}
+
 .primary__btn:focus{
     font-weight: var(--medium);
     color: var(--gray-200);
-    background-color: var(--black);
+    background: var(--black);
     border: 1px solid var(--gray-100);
-    transition: .4s ease-in;
 }
 
 .primary__btn:focus,
 .tab__btn:focus,
 .action__btn:focus{
-    outline: 2px solid var(--gray-100);
-    opacity: .8;
-}
-
-.tab__btn:focus{
-    background-color: var(--white);
+    outline: 2px solid var(--gray-200);
+    transition: .4s all ease-in-out;
 }
 
 .tab__btn{
@@ -156,15 +161,20 @@ img{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 1rem;
     margin: auto;
-    width: 540px;
-    height: 240px;
+    width: 360px;
+    height: 160px;
     color: var(--accent);
     background: var(--gradient);
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-6);
     cursor: pointer;
+    transition: all .4s ease;
+}
+
+.tab__btn:hover{
+    border: 1px solid var(--accent);
 }
 
 .action__btn{
@@ -175,9 +185,49 @@ img{
 
 .card,
 .modal,
-.forms,
 .tab__btn{
     box-shadow: var(--shadow-effect);
+}
+
+.modal{
+    margin-top: 3rem;
+    min-width: 30%;
+    min-height: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 1.25rem;
+    gap: 1.25rem;
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-8);
+}
+
+.card{
+    margin-top: 3rem;
+    min-width: 240px;
+    max-height: 190px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 1.25rem;
+    gap: .5rem;
+    color: var(--gray-400);
+    font-size: var(--normal);
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-8);
+    transition: all .4s ease;
+}
+
+.card:hover,
+.card:hover .badge{
+    color: var(--accent);
+    background: var(--gradient);
+    border: 1px solid var(--accent);
+    user-select: none;
 }
 
 .forms{
@@ -186,8 +236,7 @@ img{
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-8);
+    width: 100%;
 }
 
 .fieldset{
@@ -195,12 +244,30 @@ img{
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    gap: .375rem;
+    gap: .5rem;
+    width: 100%;
+}
+
+.label{
+    font-size: var(--normal);
+    font-weight: var(--regular);
+    color: var(--gray-400);
 }
 
 .inputfield{
+    opacity: .6;
+    font-size: var(--small);
+    font-weight: var(--regular);
+    color: var(--gray-400);
+    padding: .5rem 1rem;
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-6);
+}
+
+.inputfield:focus{
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    outline: 2px solid var(--gray-100);
 }
 
 .display{
@@ -242,8 +309,6 @@ img{
     width: 100%;
 }
 
-/*====== LOGIN ======*/
-
 /*====== HOME ======*/
 .header{
     align-items: flex-start;
@@ -271,7 +336,8 @@ img{
     font-size: var(--h2);
 }
 
-.headline__section .h3{
+.headline__section .h3,
+.form__header .h3{
     color: var(--gray-300);
     font-size: var(--normal);
     font-weight: var(--regular);
@@ -279,7 +345,14 @@ img{
 
 .main{
     min-height: 65vh;
-    background-color: var(--gray-100);
+}
+
+.tab__btn__group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .tab__btn .tab__icon img{
@@ -300,4 +373,76 @@ img{
 }
 
 /*====== PORTAL ======*/
+.card__actions,
+.card__label,
+.btn__group,
+.card__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .375rem;
+}
+
+.card__actions{
+    width: 100%;
+}
+
+.card__label{
+    font-size: var(--small);
+}
+
+.btn__group button{
+    background: transparent;
+}
+
+.card__content{
+    align-items: start;
+    flex-direction: column;
+}
+
+.card__content .description{
+    color: var(--gray-300);
+}
+.card__content .bullet{
+    width: 4px;
+    height: 4px;
+    background-color: var(--gray-200);
+    border-radius: 1rem;
+}
+
+/*====== NEW ======*/
+#page-headline-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#page-headline-section .h1{
+    color: var(--accent);
+}
+
+.link__btn{
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.link__btn img{
+    width: 9px;
+    height: 16px;
+}
+
+.modal__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.modal__header .h3{
+    color: var(--gray-300);
+    font-size: var(--normal);
+    font-weight: var(--regular);
+}
 
