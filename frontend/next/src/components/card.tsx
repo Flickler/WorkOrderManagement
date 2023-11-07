@@ -1,32 +1,35 @@
+'use client'
+
+import { deleteChamado } from "@/hooks/deleteChamado";
 import KeyIcon from "@/icons/KeyIcon";
 import PencilIcon from "@/icons/pencilIcon";
 import TrashIcon from "@/icons/trashIcon";
 
-export function Card() {
+export function Card({ chamado }: { chamado: Chamado }) {
   return (
     <div className="card">
       <div className="card__actions">
         <span className="card__label" id="os-key">
-          <KeyIcon />
-          ID
+          <KeyIcon size={14} fill="var(--gray-300)" />
+          {chamado.id}
         </span>
         <div className="btn__group">
           <button>
-            <PencilIcon />
+            <PencilIcon size={14} fill="var(--gray-300)" />
           </button>
-          <button>
-            <TrashIcon />
+          <button onClick={() => deleteChamado(chamado.id)}>
+            <TrashIcon size={14} fill="var(--gray-300)" />
           </button>
         </div>
       </div>
-      <div className="card__title">Título da OS</div>
+      <div className="card__title">{chamado.titulo}</div>
       <div className="card__content">
-        <p className="description">Descrição da OS</p>
+        <p className="description">{chamado.descricao}</p>
         <span className="bullet"></span>
-        <p className="description">Nome do Responsável</p>
+        <p className="description">{chamado.funcionario}</p>
       </div>
       <div className="badge" id="os-status">
-        Concluído
+        {chamado.status ? 'Aberto' : 'Fechado'}
       </div>
     </div>
   );
