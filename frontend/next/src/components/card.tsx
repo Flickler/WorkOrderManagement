@@ -4,6 +4,7 @@ import { deleteChamado } from "@/hooks/deleteChamado";
 import KeyIcon from "@/icons/KeyIcon";
 import PencilIcon from "@/icons/pencilIcon";
 import TrashIcon from "@/icons/trashIcon";
+import Link from "next/link";
 
 export function Card({ chamado }: { chamado: Chamado }) {
   return (
@@ -14,9 +15,9 @@ export function Card({ chamado }: { chamado: Chamado }) {
           {chamado.id}
         </span>
         <div className="btn__group">
-          <button>
+          <Link href={`./portal/${chamado.id}`}>
             <PencilIcon size={14} fill="var(--gray-300)" />
-          </button>
+          </Link>
           <button onClick={() => deleteChamado(chamado.id)}>
             <TrashIcon size={14} fill="var(--gray-300)" />
           </button>
@@ -29,7 +30,7 @@ export function Card({ chamado }: { chamado: Chamado }) {
         <p className="description">{chamado.funcionario}</p>
       </div>
       <div className="badge" id="os-status">
-        {chamado.status ? 'Aberto' : 'Fechado'} // temporario
+        {chamado.status ? 'Aberto' : 'Fechado'}
       </div>
     </div>
   );

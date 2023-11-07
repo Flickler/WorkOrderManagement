@@ -79,7 +79,8 @@ button {
 }
 
 input,
-button {
+button,
+select {
   width: 100%;
   border: none;
   outline: none;
@@ -395,6 +396,7 @@ img {
   grid-template-columns: repeat(4, 1fr);
   padding: 1rem 2rem;
   gap: 2rem;
+  min-width: 100vw;
 }
 
 .card__actions,
