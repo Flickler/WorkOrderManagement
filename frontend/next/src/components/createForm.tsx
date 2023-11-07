@@ -2,6 +2,7 @@
 
 import { createChamado } from "@/hooks/createChamado";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Toast } from "./toast";
 
 type FormProps = {
   funcionario: string;
@@ -18,6 +19,7 @@ export function RegisterForm() {
   }
   return (
     <form className="forms" onSubmit={handleSubmit(onSubmit)}>
+      {(errors.funcionario || errors.titulo || errors.descricao) && <Toast type="warn">Os campos são obrigatórios</Toast>}
       <div className="fieldset">
         <label className="label">Nome do solicitante</label>
         <input
@@ -26,7 +28,6 @@ export function RegisterForm() {
           placeholder="Nome e sobrenome"
           {...register("funcionario", { required: true })}
         />
-        {errors.funcionario && <span>O nome é obrigatorio</span>}
       </div>
       <div className="fieldset">
         <label className="label">Título do solicitação</label>
@@ -37,7 +38,6 @@ export function RegisterForm() {
           defaultValue={""}
           {...register("titulo", { required: true })}
         />
-        {errors.titulo && <span>O titulo é obrigatorio</span>}
       </div>
       <div className="fieldset">
         <label className="label">Descrição</label>
@@ -47,7 +47,6 @@ export function RegisterForm() {
           defaultValue={""}
           {...register("descricao", { required: true })}
         ></textarea>
-        {errors.descricao && <span>A descrição é obrigatorio</span>}
       </div>
       <button className="primary__btn" type="submit">
         Cadastrar

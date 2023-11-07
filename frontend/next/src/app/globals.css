@@ -334,6 +334,10 @@ img {
   background-color: var(--accent);
 }
 
+.header__nav .link__btn span{
+  color: var(--white);
+}
+
 .header .display {
   color: var(--white);
   font-size: var(--h1);
@@ -436,6 +440,45 @@ img {
   border-radius: 1rem;
 }
 
+.pagination{
+  padding: 2rem;
+}
+
+.pagination,
+.pagination .btn__link,
+.pages__count
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination{
+  gap: .5rem;
+}
+
+.pagination .btn__link{
+  background: transparent;
+  color: var(--gray-300);
+  gap: .25rem;
+}
+
+.pagination .btn__link:hover{
+  text-decoration: underline;
+  color: var(--gray-400);
+}
+
+.pages__count{
+  gap: .15rem;
+  font-size: var(--normal);
+  font-weight: var(--bold);
+  color: var(--gray-200);
+}
+
+.pages-count{
+  color: var(--accent);
+}
+
 /*====== NEW ======*/
 #page-headline-section {
   display: flex;
@@ -470,4 +513,30 @@ img {
   color: var(--gray-300);
   font-size: var(--normal);
   font-weight: var(--regular);
+}
+
+.toast-warn,
+.toast-sucess{
+  position: absolute;
+  top: -6.4rem;
+  left: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .4rem .5rem;
+  font-size: var(--normal);
+  border-radius: 0 0 .4rem .4rem;
+  user-select: none;
+}
+
+.toast-sucess{
+  color: #29daaf;
+  background-color: #29daae29;
+  border: 1px solid #29daaf;
+}
+
+.toast-warn{
+  color: #da296a;
+  background-color: rgba(218, 41, 106, 0.108);
+  border: 1px solid #da296a;
 }
