@@ -29,7 +29,7 @@ export function Card({ chamado }: { chamado: Chamado }) {
         <p className="description">{chamado.funcionario}</p>
       </div>
       <div className="badge" id="os-status">
-        {chamado.status ? 'Aberto' : 'Fechado'}
+        {chamado.status ? 'Aberto' : 'Fechado'} // temporario
       </div>
     </div>
   );
