@@ -84,6 +84,11 @@ public class ChamadoController {
             chamado.setTitulo(chamadoDTO.titulo());
             chamado.setDescricao(chamadoDTO.descricao());
             chamado.setFuncionario(chamadoDTO.funcionario());
+            if(chamadoDTO.status() != true){
+                chamado.setStatus(false);
+                return ResponseEntity.status(HttpStatus.OK).body(chamadoRepository.save(chamado));
+            }
+            chamado.setStatus(true);
             return ResponseEntity.status(HttpStatus.OK).body(chamadoRepository.save(chamado));
         } else
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
