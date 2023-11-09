@@ -1,9 +1,11 @@
 package com.example.springboot.controllers;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.example.springboot.dto.ApiDog;
 import com.example.springboot.model.ChamadoModel;
 import org.apache.coyote.Response;
 import org.springframework.beans.BeanUtils;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.springboot.dto.ChamadoDTO;
 import com.example.springboot.repositories.ChamadoRepository;
-
+import org.springframework.web.client.RestTemplate;
 import jakarta.validation.Valid;
 
 @RestController
@@ -77,28 +79,27 @@ public class ChamadoController {
     @CrossOrigin(origins = "*")
     @PutMapping("chamado/{id}")
     public ResponseEntity<ChamadoModel> updateChamado(@RequestBody @Valid ChamadoDTO chamadoDTO, @PathVariable Long id) {
-        Optional<ChamadoModel> novoChamado = chamadoRepository.findById(id);
+        // fazendo requisição pra api
+        RestTemplate restTemplete = new RestTemplate();
 
+        String ApiIndex = "https://random.dog/woof.json";
+
+        String response = restTemplete.getForObject(ApiIndex, String.class);
+        String url = response.substring(response.indexOf("\"url\":\"") + 7, response.lastIndexOf("\"}"));
+        //
+
+        System.out.println(url);
+        Optional<ChamadoModel> novoChamado = chamadoRepository.findById(id);
         if (novoChamado.isPresent()) {
             ChamadoModel chamado = novoChamado.get();
             chamado.setTitulo(chamadoDTO.titulo());
             chamado.setDescricao(chamadoDTO.descricao());
             chamado.setFuncionario(chamadoDTO.funcionario());
+
             return ResponseEntity.status(HttpStatus.OK).body(chamadoRepository.save(chamado));
         } else
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    // Esse é pra mudar o status do chamado no banco
-	/*
-	@CrossOrigin(origins = "*")
-	@PutMapping("finalizar-chamado/{id}")
-	public ResponseEntity<Object> changeStatus(@RequestBody @Valid ChamadoDTO chamadoDTO, @PathVariable Long id){
-		Optional<ChamadoModel> chamado = chamadoRepository.findById(id);
-		var chamadoModel = new ChamadoModel();
-		BeanUtils.copyProperties(chamadoDTO, chamadoModel);
-		chamadoModel.setStatus(false);
-		chamadoRepository.save(chamadoModel);
-		return ResponseEntity.status(HttpStatus.OK).body(chamadoDTO);
-	} AINDA NÃO FUNCIONANDO */
+
 }
