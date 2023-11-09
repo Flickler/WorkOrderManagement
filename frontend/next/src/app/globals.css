@@ -1,14 +1,14 @@
 /*====== VARIABLES CSS ======*/
 :root {
   /* Colors | Color Mode HSL */
-  --accent: hsl(203, 50%, 70%);
+  --accent: hsl(173, 100%, 28%);
   --white: hsl(0, 0%, 100%);
-  --gray-100: hsl(203, 20%, 98%);
-  --gray-200: hsl(203, 10%, 90%);
-  --gray-300: hsl(203, 20%, 70%);
-  --gray-400: hsl(203, 10%, 40%);
-  --black: hsl(203, 20%, 20%);
-  --gradient: linear-gradient(280deg, hsl(203, 70%, 96%) 10%, hsl(0, 0%, 100%) 90%);
+  --gray-100: hsl(173, 20%, 98%);
+  --gray-200: hsl(173, 10%, 90%);
+  --gray-300: hsl(173, 20%, 70%);
+  --gray-400: hsl(173, 10%, 40%);
+  --black: hsl(173, 20%, 20%);
+  --gradient: linear-gradient(280deg, hsl(173, 70%, 96%) 10%, hsl(0, 0%, 100%) 90%);
 
   /* Typography */
   --body-ff: "Roboto Mono", monospace;
@@ -139,17 +139,20 @@ img {
   font-family: var(--body-ff);
   font-size: var(--normal);
   font-weight: var(--regular);
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   color: var(--gray-400);
   background: var(--gradient);
   border: 1px solid var(--gray-300);
   border-radius: var(--radius-6);
+  transition: all .4s ease;
 }
 
 .primary__btn:hover {
   font-weight: var(--medium);
-  border: 1px solid var(--gray-200);
-  outline: 3px solid var(--gray-200);
+  color: var(--accent);
+  background-color: var(--accent);
+  border: 1px solid var(--accent);
+  box-shadow: var(--shadow-effect);
 }
 
 .primary__btn:focus {
@@ -157,6 +160,7 @@ img {
   color: var(--gray-200);
   background: var(--black);
   border: 1px solid var(--gray-100);
+  outline: 2px solid var(--gray-200);
 }
 
 .primary__btn:focus,

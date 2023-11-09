@@ -30,14 +30,10 @@ Sistema simples desenvolvido para gestão de ordem de serviços, esse sistema in
 | #    | Páginas        | Deploy |
 | :--- | :------------- | :------ |
 | `01` | `Protótipos Figma` |[🔗](https://www.figma.com/file/Pv5tv0mqIctpJPUVEuwKLg/Work-Order-Mangement?type=design&node-id=0-1&mode=design&t=TZMk5zU5TcyptWOn-0) |
-| `02` | `Login` |
-| `03` | `Home` |
-| `04` | `Página de Consultas` |
-| `05` | `Página de Cadastro` |
 
 ## Autores
-#### [@Manoel Junior](https://github.com/Flickler)
-#### [@Talita Costa](https://github.com/tltco)
 #### [@Jean Costa](https://github.com/Janp3)
-#### [@Matheus](https://github.com/TiMathues)
 #### [@Luiz Felipe](https://github.com/Luizfbm)
+#### [@Manoel Junior](https://github.com/Flickler)
+#### [@Matheus](https://github.com/TiMathues)
+#### [@Talita Costa](https://github.com/tltco)
