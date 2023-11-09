@@ -3,8 +3,7 @@ export async function createChamado(form: {
   titulo: string;
   descricao: string;
 }): Promise<Chamado> {
-  // http://10.4.12.15:8080/chamado/${id}
-  const res = await fetch("http://localhost:3004/chamado", {
+  const res = await fetch("http://10.4.12.15:8080/chamado", {
     method: "POST",
     headers: {"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify(form)

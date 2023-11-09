@@ -1,3 +1,5 @@
+'use client'
+
 import { Footer } from "@/components/footer";
 import { HomeHeader } from "@/components/home-header";
 import { TabButton } from "@/components/tab-button";
@@ -5,6 +7,7 @@ import CheckListIcon from "@/icons/checkListIcon";
 import PlusIcon from "@/icons/plusIcon";
 
 export default function Home() {
+  
   return (
     <>
       <HomeHeader />

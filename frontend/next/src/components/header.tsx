@@ -5,7 +5,7 @@ export function Header({ heading }: { heading: string }){
   return (
     <header className="header">
         <div className="headline__section" id="page-headline-section">
-            <Link href="home" className="link__btn h3">
+            <Link href="/home" className="link__btn h3">
                 <ChevronLeftIcon fill="var(--accent)"/>
                 <span>Voltar</span>
             </Link>
