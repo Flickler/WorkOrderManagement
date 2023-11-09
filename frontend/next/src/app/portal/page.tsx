@@ -3,10 +3,11 @@ import { Header } from "@/components/header";
 import { getChamados } from "@/hooks/getChamados";
 import ChevronLeftIcon from "@/icons/chevronLeftIcon";
 import ChevronRightIcon from "@/icons/chevronRightIcon";
+import { useEffect } from "react";
 
 export default async function Portal() {
 
-  const chamados: Promise<Chamado[]> = getChamados();
+  const chamados = getChamados();
   const data = await chamados;
 
   return (

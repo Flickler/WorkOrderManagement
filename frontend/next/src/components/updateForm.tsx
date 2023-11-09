@@ -1,6 +1,7 @@
 "use client";
 import { updateChamado } from "@/hooks/updateChamado";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useRouter } from "../../node_modules/next/navigation";
 
 type FormProps = {
   id: number;
@@ -11,10 +12,13 @@ type FormProps = {
 };
 
 export function UpdateForm({ chamado }: { chamado: Chamado }) {
+
+  const router = useRouter();
+
   const { register, handleSubmit, formState: { errors } } = useForm<FormProps>();
   const onSubmit: SubmitHandler<FormProps> = async (data) => {
     const res = await updateChamado(data);
-    if(res.id) alert("Chamado Atualizado")
+    router.push(`/apidog`)
   };
 
   return (

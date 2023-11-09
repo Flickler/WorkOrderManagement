@@ -1,8 +1,9 @@
-export async function updateChamado(chamado: Chamado) {
-  const res = await fetch(`http://localhost:3004/chamado/${chamado.id}`, {
+export async function updateChamado(chamado: Chamado): Promise<{ url: string }> {
+  const res = await fetch(`http://10.4.12.15:8080/chamado/${chamado.id}`, {
     method: "PUT",
     headers: { "Content-type": "application/json; charset=UTF-8" },
     body: JSON.stringify(chamado),
+    cache: 'no-cache'
   });
 
   if(!res.ok) throw new Error("Failed to update chamado");
