@@ -523,8 +523,8 @@ img {
 .toast-warn,
 .toast-sucess{
   position: absolute;
-  top: -6.4rem;
-  left: 7rem;
+  top: -14.5rem;
+  left: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -542,7 +542,7 @@ img {
 
 .toast-warn{
   color: #da296a;
-  background-color: rgba(218, 41, 106, 0.108);
+  background-color: rgba(218, 41, 106, 0.075);
   border: 1px solid #da296a;
 }
 
